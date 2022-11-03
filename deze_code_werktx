@@ -168,6 +168,7 @@ def clicked(b):
             
     if not positions:
         messagebox.showinfo('gelijkspel','je hebt gelijkspel gespeeld tegen een randomiser bot      Schaam je diep!!!')
+        player1 = False
         kom()
     
     
