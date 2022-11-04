@@ -1,5 +1,5 @@
 # Stefan_mos
-Tic Tac Toe programma
+#Tic Tac Toe programma
 from tkinter import *
 from tkinter import messagebox
 from random import choice
@@ -38,7 +38,7 @@ s.mainloop()
 root = Tk()
 root.title("tic tac toe")
 
-
+uitslagen[]
 
 player1 = False
 count = 0
@@ -47,43 +47,55 @@ o = 0
 
 b = Button
 
-
+def print_uitslagen():
+    for i in range(len(uitslagen)):
+            print(f'''
+            {uitslagen[i][0]}|{uitslagen[i][1]}|{uitslagen[i][2]}
+            ---------------------------------------
+            {uitslagen[i][3]}|{uitslagen[i][4]}|{uitslagen[i][5]}
+            ---------------------------------------
+            {uitslagen[i][6]}|{uitslagen[i][7]}|{uitslagen[i][8]}
+            {uitslagen[i][9]} heeft gewonnen''')
 c = 0
 def win1():
     global o
+    wino = False
     if b1["text"] == 'O' and b2["text"] == "O" and b3["text"] == "O":
         print('O wins')
         o += 1
-        kom()
+        wino = True
     elif b4["text"] == 'O' and b5["text"] == "O" and b6["text"] == "O":
         print('O wins')
         o += 1
-        kom()
+        wino = True
     elif b7["text"] == 'O' and b8["text"] == "O" and b9["text"] == "O":
         print('O wins')
         o += 1
-        kom()
+        wino = True
     elif b1["text"] == 'O' and b4["text"] == "O" and b7["text"] == "O":
         print('O wins')
         o += 1
-        kom()
+        wino = True
     elif b2["text"] == 'O' and b5["text"] == "O" and b8["text"] == "O":
         print('O wins')
         o += 1
-        kom()
+        wino = True
     elif b3["text"] == 'O' and b6["text"] == "O" and b9["text"] == "O":
         print('O wins')
         o += 1
-        kom()
+        wino = True
     elif b1["text"] == 'O' and b5["text"] == "O" and b9["text"] == "O":
         print('O wins')
         o += 1
-        kom()
+        wino = True
     elif b3["text"] == 'O' and b5["text"] == "O" and b7["text"] == "O":
         print('O wins')
         o += 1
+        wino = True
+    if wino:
+        print_uitslagen()
         kom()
-      
+        
 
 def win2():
     global x
