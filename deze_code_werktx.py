@@ -1,5 +1,6 @@
 # Stefan_mos
 #Tic Tac Toe programma
+#dit is een test voor vlads commit.
 from tkinter import *
 from tkinter import messagebox
 from random import choice
@@ -144,17 +145,15 @@ def clicked(b):
 
     if player1 == False and positions != None:
         #vul x in button
+        win1()
+        win2()
         
         if b["text"] == " " and player1 == False:
             b["text"] = "X"
             
             positions.remove(b)
             
-            player1 = True
-            
-            win1()
-            win2()
-                   
+            player1 = True       
             
             if player1 == True and len(positions) != 0:
                 a = random.choice(positions)
@@ -198,6 +197,7 @@ def kom():
             positions.clear()
             root.withdraw()
             positions.extend([b1,b2,b3,b4,b5,b6,b7,b8,b9])
+            
             
             for i in [b1,b2,b3,b4,b5,b6,b7,b8,b9]:
                 i.configure(text = ' ')
