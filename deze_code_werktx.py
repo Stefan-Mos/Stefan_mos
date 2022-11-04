@@ -38,7 +38,7 @@ s.mainloop()
 root = Tk()
 root.title("tic tac toe")
 
-uitslagen[]
+uitslagen = []
 
 player1 = False
 count = 0
@@ -54,8 +54,7 @@ def print_uitslagen():
             ---------------------------------------
             {uitslagen[i][3]}|{uitslagen[i][4]}|{uitslagen[i][5]}
             ---------------------------------------
-            {uitslagen[i][6]}|{uitslagen[i][7]}|{uitslagen[i][8]}
-            {uitslagen[i][9]} heeft gewonnen''')
+            {uitslagen[i][6]}|{uitslagen[i][7]}|{uitslagen[i][8]}''')
 c = 0
 def win1():
     global o
@@ -93,45 +92,48 @@ def win1():
         o += 1
         wino = True
     if wino:
-        print_uitslagen()
+        uitslagen.append([b1["text"],b2["text"],b3["text"],b4["text"],b5["text"],b6["text"],b7["text"],b8["text"],b9["text"]])
         kom()
         
 
 def win2():
+    winx = False
     global x
     if b1["text"] == 'X' and b2["text"] == "X" and b3["text"] == "X":
         print('X wins')
         x += 1
-        kom()
+        winx = True
     elif b4["text"] == 'X' and b5["text"] == "X" and b6["text"] == "X":
         print('X wins')
         x += 1
-        kom()
+        winx = True
     elif b7["text"] == 'X' and b8["text"] == "X" and b9["text"] == "X":
         print('X wins')
         x += 1
-        kom()
+        winx = True
     elif b1["text"] == 'X' and b4["text"] == "X" and b7["text"] == "X":
         print('X wins')
         x += 1
-        kom()
+        winx = True
     elif b2["text"] == 'X' and b5["text"] == "X" and b8["text"] == "X":
         print('X wins')
         x += 1
-        kom()
+        winx = True
     elif b3["text"] == 'X' and b6["text"] == "X" and b9["text"] == "X":
         print('X wins')
         x += 1
-        kom()
+        winx = True
     elif b1["text"] == 'X' and b5["text"] == "X" and b9["text"] == "X":
         print('X wins')
         x += 1
-        kom()
+        winx = True
     elif b3["text"] == 'X' and b5["text"] == "X" and b7["text"] == "X":
         print('X wins')
         x += 1
+        winx = True
+    if winx:
+        uitslagen.append([b1["text"],b2["text"],b3["text"],b4["text"],b5["text"],b6["text"],b7["text"],b8["text"],b9["text"]])
         kom()
-
 
 
     
@@ -197,7 +199,6 @@ def kom():
             root.withdraw()
             positions.extend([b1,b2,b3,b4,b5,b6,b7,b8,b9])
             
-            print(positions)
             for i in [b1,b2,b3,b4,b5,b6,b7,b8,b9]:
                 i.configure(text = ' ')
                 
@@ -208,8 +209,10 @@ def kom():
             
             
     else:
+        print_uitslagen()
         print(f"x heeft {x} punten")
         print (f"o heeft {o} punten")
+        
         
         quit()
     
