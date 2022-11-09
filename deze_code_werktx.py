@@ -11,6 +11,15 @@ s = Tk()
 s.title('hoeveel rondes?')
 times = 0
 
+actuele_stand = []
+hatsa = 1
+def tweeopeenrijchecken(eg):
+        for i in range(0,9):
+            eg = int(eg)
+            a.append(eg["text"])
+            eg = int(eg)
+            eg = eg + 1
+            print(a)
 def een_keer():
     global times
     times = 1
@@ -141,7 +150,7 @@ def win2():
 def clicked(b):
    # als er geklikt wordt en player1 = false dan komt er een X
    # player1 = True dan komt een O
-    global player1, c, x , o 
+    global player1, c, x , o
 
     if player1 == False and positions != None:
         #vul x in button
@@ -149,16 +158,98 @@ def clicked(b):
         win2()
         
         if b["text"] == " " and player1 == False:
-            b["text"] = "X"
-            
+            b["text"] = "X"    
             positions.remove(b)
+            win1()
+            win2()
+            
             
             player1 = True       
             
             if player1 == True and len(positions) != 0:
-                a = random.choice(positions)
-                positions.remove(a)
-                clicked(a)
+                win1()
+                win2()
+                b = 0
+                if b == 0:
+                    if b5["text"] == " ":
+                        clicked(b5)
+                        b = b + 1
+                if b1["text"] == b2["text"] and b3["text"] == " " and b1["text"] != " ":
+                    clicked(b3)
+    
+                elif b1["text"] == b3["text"] and b2["text"] == " "and b1["text"] != " ":
+                    clicked(b2)
+                    
+                elif b2["text"] == b3["text"] and b1["text"] == " "and b2["text"] != " ":
+                    clicked(b1)
+                    
+                elif b4["text"] == b5["text"] and b6["text"] == " "and b4["text"] != " ":
+                    clicked(b6)
+                    
+                elif b4["text"] == b6["text"] and b5["text"] == " "and b4["text"] != " ":
+                    clicked(b5)
+                    
+                elif b5["text"] == b6["text"] and b4["text"] == " "and b5["text"] != " ":
+                    clicked(b4)
+                    
+                elif b7["text"] == b8["text"] and b9["text"] == " "and b7["text"] != " ":
+                    clicked(b9)
+                    
+                elif b7["text"] == b9["text"] and b8["text"] == " "and b7["text"] != " ":
+                    clicked(b8)
+                    
+                elif b8["text"] == b9["text"] and b7["text"] == " "and b8["text"] != " ":
+                    clicked(b7)
+                    
+                elif b1["text"] == b4["text"] and b7["text"] == " "and b1["text"] != " ":
+                    clicked(b7)
+                    
+                elif b1["text"] == b7["text"] and b4["text"] == " "and b1["text"] != " ":
+                    clicked(b4)
+                    
+                elif b4["text"] == b7["text"] and b1["text"] == " "and b4["text"] != " ":
+                    clicked(b1)
+                    
+                elif b2["text"] == b5["text"] and b8["text"] == " "and b2["text"] != " ":
+                    clicked(b8)
+                    
+                elif b2["text"] == b8["text"] and b5["text"] == " "and b2["text"] != " ":
+                    clicked(b5)
+                    
+                elif b5["text"] == b8["text"] and b2["text"] == " "and b5["text"] != " ":
+                    clicked(b2)
+                    
+                elif b3["text"] == b6["text"] and b9["text"] == " "and b3["text"] != " ":
+                    clicked(b9)
+                    
+                elif b3["text"] == b9["text"] and b6["text"] == " "and b3["text"] != " ":
+                    clicked(b6)
+                    
+                elif b6["text"] == b9["text"] and b3["text"] == " "and b6["text"] != " ":
+                    clicked(b3)
+                    
+                elif b1["text"] == b5["text"] and b9["text"] == " "and b1["text"] != " ":
+                    clicked(b9)
+                    
+                elif b1["text"] == b9["text"] and b5["text"] == " "and b1["text"] != " ":
+                    clicked(b5)
+                    
+                elif b5["text"] == b9["text"] and b1["text"] == " "and b5["text"] != " ":
+                    clicked(b1)
+                    
+                elif b3["text"] == b5["text"] and b7["text"] == " "and b3["text"] != " ":
+                    clicked(b7)
+                    
+                elif b3["text"] == b7["text"] and b5["text"] == " "and b3["text"] != " ":
+                    clicked(b5)
+                    
+                elif b5["text"] == b7["text"] and b3["text"] == " "and b5["text"] != " ":
+                    clicked(b3)
+    
+                else:
+                    a = random.choice(positions)
+                    positions.remove(a)
+                    clicked(a)
                 
                 win1()
                 win2()
@@ -170,7 +261,8 @@ def clicked(b):
             messagebox.showerror('tic tac toe', 'why you pressing filled square')
         
         
-            
+    
+        
     elif player1 == True:    
         if b["text"] == " " and player1 == True:
             b["text"] = "O"
@@ -185,7 +277,7 @@ def clicked(b):
         kom()
     
     
-    
+    tweeopeenrijchecken(hatsa)
   
 def kom():
     # zet ervoor de code om het venster schoon te maken.
@@ -244,7 +336,7 @@ b7.grid(row = 2, column = 0)
 b8.grid(row = 2, column = 1)
 b9.grid(row = 2, column = 2)
 
-positions= [b1,b2,b3,b4,b5,b6,b7,b8,b9]
+positions = [b1,b2,b3,b4,b5,b6,b7,b8,b9]
 
 root.mainloop()
 
