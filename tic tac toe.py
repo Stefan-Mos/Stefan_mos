@@ -8,6 +8,7 @@ import time
 root = Tk()
 root.title("tic tac toe")
 
+uitslagen = []
 
 player1 = False
 count = 0
@@ -15,33 +16,45 @@ count = 0
 
 
 b = Button
-
+def print_uitslagen():
+    for i in range(len(uitslagen)):
+            print(f'''
+            {uitslagen[i][0]}|{uitslagen[i][1]}|{uitslagen[i][2]}
+            ---------------------------------------
+            {uitslagen[i][3]}|{uitslagen[i][4]}|{uitslagen[i][5]}
+            ---------------------------------------
+            {uitslagen[i][6]}|{uitslagen[i][7]}|{uitslagen[i][8]}
+            {uitslagen[i][9]} heeft gewonnen''')
 def win1():
+    wino = False
     if b1["text"] == 'O' and b2["text"] == "O" and b3["text"] == "O":
         messagebox.showinfo('tic tac ho','O wins')
-        quit()
+        wino = True
     elif b4["text"] == 'O' and b5["text"] == "O" and b6["text"] == "O":
         messagebox.showinfo('tic tac ho','O wins')
-        quit()
+        wino = True
     elif b7["text"] == 'O' and b8["text"] == "O" and b9["text"] == "O":
         messagebox.showinfo('tic tac ho','O wins')
-        quit()
+        wino = True
     elif b1["text"] == 'O' and b4["text"] == "O" and b7["text"] == "O":
         messagebox.showinfo('tic tac ho','O wins')
-        quit()
+        wino = True
     elif b2["text"] == 'O' and b5["text"] == "O" and b8["text"] == "O":
         messagebox.showinfo('tic tac ho','O wins')
-        quit()
+        wino = True
     elif b3["text"] == 'O' and b6["text"] == "O" and b9["text"] == "O":
         print('O wins')
-        quit()
+        wino = True
     elif b1["text"] == 'O' and b5["text"] == "O" and b9["text"] == "O":
         messagebox.showinfo('tic tac ho','O wins')
-        quit()
+        wino = True
     elif b3["text"] == 'O' and b5["text"] == "O" and b7["text"] == "O":
         messagebox.showinfo('tic tac ho','O wins')
-        quit()
-      
+        wino = True
+    if wino:
+        uitslagen.append([b1["text"],b2["text"],b3["text"],b4["text"],b5["text"],b6["text"],b7["text"],b8["text"],b9["text"],"O"])#voeg een nieuwe uitslag aan de list toe
+        #uitslagen.append(tweede uitslag.)
+        
 
 def win2():
     if b1["text"] == 'X' and b2["text"] == "X" and b3["text"] == "X":
